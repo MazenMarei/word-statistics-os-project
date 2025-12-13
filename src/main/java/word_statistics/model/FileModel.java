@@ -15,26 +15,32 @@ public class FileModel {
     private int youCount;
 
     public FileModel(String fileName, String filePath) {
+        this(fileName, filePath, true);
+    }
+
+    public FileModel(String fileName, String filePath, boolean validate) {
         if (fileName == null || filePath == null) {
             throw new IllegalArgumentException(
                     "File name or path cannot be null");
         }
-        File fileObj = new File(filePath);
-        if (!fileObj.exists()) {
-            throw new IllegalArgumentException("File path does not exist");
+
+        if (validate) {
+            File fileObj = new File(filePath);
+            if (!fileObj.exists()) {
+                throw new IllegalArgumentException("File path does not exist");
+            }
+            if (!fileObj.isFile()) {
+                throw new IllegalArgumentException("Path is not a file");
+            }
+            if (!fileObj.canRead()) {
+                throw new IllegalArgumentException("File is not readable");
+            }
         }
-        if (!fileObj.isFile()) {
-            throw new IllegalArgumentException("Path is not a file");
-        }
-        if (!fileObj.canRead()) {
-            throw new IllegalArgumentException("File is not readable");
-        }
-      
 
         this.fileName = fileName;
         this.filePath = filePath;
-        this.longestWord = "";
-        this.shortestWord = "";
+        this.longestWord = "-";
+        this.shortestWord = "-";
         this.wordCount = 0;
         this.isCount = 0;
         this.areCount = 0;
@@ -89,12 +95,20 @@ public class FileModel {
         return wordCount;
     }
 
+    public void setWordCount(int wordCount) {
+        this.wordCount = wordCount;
+    }
+
     public void incrementWordCount() {
         this.wordCount += 1;
     }
 
     public int getIsCount() {
         return isCount;
+    }
+
+    public void setIsCount(int isCount) {
+        this.isCount = isCount;
     }
 
     public void incrementIsCount() {
@@ -105,12 +119,20 @@ public class FileModel {
         return areCount;
     }
 
+    public void setAreCount(int areCount) {
+        this.areCount = areCount;
+    }
+
     public void incrementAreCount() {
         this.areCount += 1;
     }
 
     public int getYouCount() {
         return youCount;
+    }
+
+    public void setYouCount(int youCount) {
+        this.youCount = youCount;
     }
 
     public void incrementYouCount() {

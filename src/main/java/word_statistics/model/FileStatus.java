@@ -4,5 +4,6 @@ public enum FileStatus {
     PENDING,
     PROCESSING,
     COMPLETED,
-    FAILED
+    STOPPED,
+    ERROR
 }

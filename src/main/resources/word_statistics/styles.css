@@ -273,3 +273,13 @@
     -fx-background-color: rgba(76, 175, 80, 0.2);
     -fx-text-fill: #4caf50;
 }
+
+.status-badge-stopped {
+    -fx-background-color: rgba(255, 152, 0, 0.2);
+    -fx-text-fill: #ff9800;
+}
+
+.status-badge-error {
+    -fx-background-color: rgba(244, 67, 54, 0.2);
+    -fx-text-fill: #f44336;
+}

@@ -4,5 +4,6 @@ public enum AppStatus {
     Ready,
     RUNNING,
     COMPLETED,
-    FAILED
+    FAILED,
+    STOPPED
 }

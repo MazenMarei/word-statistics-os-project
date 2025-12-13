@@ -15,7 +15,7 @@ public class App extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
 
-            Scene scene = new Scene(root, 1400, 900);
+            Scene scene = new Scene(root, 1200, 800);
 
             primaryStage.setTitle("Text File Analyzer");
             primaryStage.setScene(scene);

@@ -70,6 +70,7 @@
                         text="■ Stop"
                         styleClass="stop-btn"
                         disable="true"
+                        onAction="#onStopButtonClick"
                     />
                 </HBox>
 
@@ -90,12 +91,12 @@
 
                     <HBox spacing="8">
                         <Label
-                            text="Active Threads:"
+                            text="Active / Available Threads:"
                             styleClass="status-label"
                         />
                         <Label
                             fx:id="threadCountLabel"
-                            text="0"
+                            text="0 / 0"
                             styleClass="status-value"
                         />
                     </HBox>
