@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<BorderPane
+    xmlns="http://javafx.com/javafx/17"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="word_statistics.controller.MainController"
+    styleClass="app-container"
+    stylesheets="@styles.css"
+>
+
+    <!-- Main Content -->
+    <center>
+        <VBox styleClass="app-main" spacing="30">
+            <padding>
+                <Insets top="30" right="40" bottom="30" left="40" />
+            </padding>
+
+            <!-- Input Section -->
+            <VBox styleClass="section, input-section" spacing="15">
+                <padding>
+                    <Insets top="25" right="30" bottom="25" left="30" />
+                </padding>
+
+                <Label text="Configuration" styleClass="section-title" />
+
+                <!-- Directory Input -->
+                <VBox spacing="8">
+                    <Label text="Directory Path" styleClass="input-label" />
+                    <HBox spacing="10">
+                        <TextField
+                            fx:id="directoryPathField"
+                            text="N/A"
+                            styleClass="path-input"
+                            HBox.hgrow="ALWAYS"
+                            editable="false"
+                        />
+                        <Button
+                            fx:id="browseBtn"
+                            text="Browse"
+                            styleClass="browse-btn"
+                            onAction="#onBrowseButtonClick"
+                        />
+                    </HBox>
+                </VBox>
+
+                <!-- Checkbox -->
+                <CheckBox
+                    fx:id="includeSubdirsCheck"
+                    text="Include subdirectories (2 levels deep)"
+                    selected="false"
+                    onAction="#onIncludeSubdirsCheckToggle"
+                    styleClass="checkbox-custom"
+                />
+
+                <!-- Action Buttons -->
+                <HBox spacing="15">
+                    <Button
+                        fx:id="analyzeBtn"
+                        text="▶ Start Analysis"
+                        styleClass="analyze-btn"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity"
+                        onAction="#onAnalyzeButtonClick"
+                    />
+                    <Button
+                        fx:id="stopBtn"
+                        text="■ Stop"
+                        styleClass="stop-btn"
+                        disable="true"
+                    />
+                </HBox>
+
+                <!-- Status Bar -->
+                <HBox styleClass="status-bar" spacing="30">
+                    <padding>
+                        <Insets top="15" right="20" bottom="15" left="20" />
+                    </padding>
+
+                    <HBox spacing="8">
+                        <Label text="Status:" styleClass="status-label" />
+                        <Label
+                            fx:id="statusLabel"
+                            text="-"
+                            styleClass="status-value"
+                        />
+                    </HBox>
+
+                    <HBox spacing="8">
+                        <Label
+                            text="Active Threads:"
+                            styleClass="status-label"
+                        />
+                        <Label
+                            fx:id="threadCountLabel"
+                            text="0"
+                            styleClass="status-value"
+                        />
+                    </HBox>
+
+                    <HBox spacing="8">
+                        <Label
+                            text="Files Processed:"
+                            styleClass="status-label"
+                        />
+                        <Label
+                            fx:id="filesProcessedLabel"
+                            text="0 / 0"
+                            styleClass="status-value"
+                        />
+                    </HBox>
+                </HBox>
+            </VBox>
+
+            <!-- Results Section -->
+            <VBox
+                styleClass="section, results-section"
+                spacing="20"
+                VBox.vgrow="ALWAYS"
+            >
+                <padding>
+                    <Insets top="25" right="30" bottom="25" left="30" />
+                </padding>
+
+                <Label text="Statistics" styleClass="section-title" />
+
+                <!-- Summary Cards -->
+                <GridPane styleClass="summary-cards" hgap="20" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints
+                            percentWidth="33.33"
+                            hgrow="ALWAYS"
+                        />
+                        <ColumnConstraints
+                            percentWidth="20"
+                            hgrow="ALWAYS"
+                        />
+                        <ColumnConstraints
+                            percentWidth="20"
+                            hgrow="ALWAYS"
+                        />
+                        <ColumnConstraints
+                            percentWidth="20"
+                            hgrow="ALWAYS"
+                        />
+                        <ColumnConstraints
+                            percentWidth="33.33"
+                            hgrow="ALWAYS"
+                        />
+                        <ColumnConstraints
+                            percentWidth="33.33"
+                            hgrow="ALWAYS"
+                        />
+                    </columnConstraints>
+
+                    <VBox styleClass="summary-card" GridPane.columnIndex="0">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20" />
+                        </padding>
+                        <Label text="TOTAL WORDS" styleClass="card-label" />
+                        <Label
+                            fx:id="totalWordsLabel"
+                            text="0"
+                            styleClass="card-value"
+                        />
+                    </VBox>
+
+                    <VBox styleClass="summary-card" GridPane.columnIndex="1">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20" />
+                        </padding>
+                        <Label
+                            text="Total IS"
+                            styleClass="card-label"
+                        />
+                        <Label
+                            fx:id="totalIsLabel"
+                            text="-"
+                            styleClass="card-value, word-display"
+                        />
+                    </VBox>
+
+                    <VBox styleClass="summary-card" GridPane.columnIndex="2">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20" />
+                        </padding>
+                        <Label
+                            text="Total ARE"
+                            styleClass="card-label"
+                        />
+                        <Label
+                            fx:id="totalAreLabel"
+                            text="-"
+                            styleClass="card-value, word-display"
+                        />
+                    </VBox>
+
+                    <VBox styleClass="summary-card" GridPane.columnIndex="3">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20" />
+                        </padding>
+                        <Label
+                            text="Total You"
+                            styleClass="card-label"
+                        />
+                        <Label
+                            fx:id="totalYouLabel"
+                            text="-"
+                            styleClass="card-value, word-display"
+                        />
+                    </VBox>
+                    <VBox styleClass="summary-card" GridPane.columnIndex="4">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20" />
+                        </padding>
+                        <Label
+                            text="SHORTEST WORD"
+                            styleClass="card-label"
+                        />
+                        <Label
+                            fx:id="ShortestLabel"
+                            text="-"
+                            styleClass="card-value, word-display"
+                        />
+                    </VBox>
+                    <VBox styleClass="summary-card" GridPane.columnIndex="5">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20" />
+                        </padding>
+                        <Label
+                            text="LONGEST WORD"
+                            styleClass="card-label"
+                        />
+                        <Label
+                            fx:id="LongestLabel"
+                            text="-"
+                            styleClass="card-value, word-display"
+                        />
+                    </VBox>
+                </GridPane>
+
+                <!-- Table -->
+                <TableView
+                    fx:id="statsTable"
+                    styleClass="stats-table"
+                    VBox.vgrow="ALWAYS"
+                    editable="false"
+                >
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                    <columns>
+                        <TableColumn
+                            fx:id="fileNameCol"
+                            text="FILE NAME"
+                            minWidth="150"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                        <TableColumn
+                            fx:id="wordCountCol"
+                            text="#WORDS"
+                            minWidth="20"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                        <TableColumn
+                            fx:id="isCountCol"
+                            text="#IS"
+                            minWidth="20"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                        <TableColumn
+                            fx:id="areCountCol"
+                            text="#ARE"
+                            minWidth="20"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                        <TableColumn
+                            fx:id="youCountCol"
+                            text="#YOU"
+                            minWidth="20"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                        <TableColumn
+                            fx:id="longestWordCol"
+                            text="LONGEST WORD"
+                            minWidth="150"
+                            styleClass="table-column"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                        <TableColumn
+                            fx:id="shortestWordCol"
+                            text="SHORTEST WORD"
+                            minWidth="90"
+                            styleClass="table-column"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                        <TableColumn
+                            fx:id="statusCol"
+                            text="STATUS"
+                            styleClass="table-column"
+                            editable="false"
+                            resizable="false"
+                            reorderable="false"
+                        />
+                    </columns>
+                    <placeholder>
+                        <Label
+                            text="No analysis running. Click 'Start Analysis' to begin."
+                            styleClass="empty-state"
+                        />
+                    </placeholder>
+                </TableView>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>
