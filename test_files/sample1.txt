@@ -1,0 +1,6 @@
+Hello world! This is a simple test file.
+You are reading a sample text document.
+The purpose of this file is to test the word statistics analyzer.
+Are you ready to see the results?
+This is an example of how the application works.
+You can use this to verify that word counting is accurate.

@@ -1,0 +1,5 @@
+This file is in a subdirectory.
+You are testing the subdirectory scanning feature.
+Are subdirectories being scanned correctly?
+This is important for comprehensive file analysis.
+The application should find this file when subdirectories are included.

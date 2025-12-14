@@ -39,8 +39,8 @@ public class FileModel {
 
         this.fileName = fileName;
         this.filePath = filePath;
-        this.longestWord = "-";
-        this.shortestWord = "-";
+        this.longestWord = "";
+        this.shortestWord = "";
         this.wordCount = 0;
         this.isCount = 0;
         this.areCount = 0;
@@ -74,7 +74,7 @@ public class FileModel {
     }
 
     public void setLongestWord(String longestWord) {
-        if (this.longestWord.isEmpty() ||
+        if (this.longestWord.equals("-") || this.longestWord.isEmpty() ||
                 longestWord.length() >= this.longestWord.length()) {
             this.longestWord = longestWord;
         }

@@ -1,0 +1,5 @@
+Another nested file for testing purposes.
+You are verifying that all files are discovered.
+Recursive directory scanning is working if you see this.
+Are there any issues with nested directories?
+The implementation is successful when this appears in results.

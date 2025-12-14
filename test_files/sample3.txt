@@ -1,0 +1,6 @@
+Java is a powerful programming language.
+JavaFX is great for building desktop applications.
+Multithreading is important for performance.
+You are building a word statistics analyzer.
+This application uses thread pools for efficiency.
+The results are displayed in real-time as files are processed.

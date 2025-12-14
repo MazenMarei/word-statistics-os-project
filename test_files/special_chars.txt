@@ -1,0 +1,6 @@
+Hello, world! How are you today?
+This is a test... isn't it?
+You're reading this—aren't you?
+"Quotes" and 'apostrophes' are common.
+Special characters like @#$% should be ignored.
+Email addresses like test@example.com contain special chars.

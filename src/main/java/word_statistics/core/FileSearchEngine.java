@@ -99,6 +99,7 @@ public class FileSearchEngine {
                     alert.showAndWait();
                     setStatus(AppStatus.Ready);
                 });
+                this.controller.enableControls();
                 return;
             }
 
