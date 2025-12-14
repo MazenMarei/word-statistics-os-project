@@ -49,7 +49,7 @@
                 <!-- Checkbox -->
                 <CheckBox
                     fx:id="includeSubdirsCheck"
-                    text="Include subdirectories (2 levels deep)"
+                    text="Include subdirectories"
                     selected="false"
                     onAction="#onIncludeSubdirsCheckToggle"
                     styleClass="checkbox-custom"

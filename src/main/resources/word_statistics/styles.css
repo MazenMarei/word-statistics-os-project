@@ -1,4 +1,3 @@
-/* JavaFX Color Palette */
 .root {
     -fx-primary-blue: #0094da;
     -fx-secondary-blue: #0085c2;
@@ -251,7 +250,7 @@
     -fx-font-style: italic;
     -fx-padding: 40;
 }
-/* Status Badge Styles (for custom cell rendering) */
+/* Status Badge Styles */
 .status-badge {
     -fx-padding: 4 12 4 12;
     -fx-background-radius: 12;
